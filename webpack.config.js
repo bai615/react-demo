@@ -1,4 +1,5 @@
 module.exports = {
+    mode: 'development',// production
     context:__dirname+"/app", //源文件目录
     entry:{
         app:"./index.jsx" //在源文件目录下去找index.js 文件作为打包的入口文件
@@ -20,6 +21,10 @@ module.exports = {
             {   //对样式的支持
                 test: /\.css$/,
                 use: ["style-loader", "css-loader"],
+            },
+            {
+                test: /\.less/,
+                use: ["style-loader", "css-loader", "less-loader"]
             }
 
         ]
