@@ -10,7 +10,7 @@ class IndexComponent extends React.Component{
         super(props);
         console.log(this.props);
         this.state = {
-            color: '#f00'
+            color: '#ffcc00'
         };
         console.log(this.state);
     }

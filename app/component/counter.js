@@ -103,6 +103,15 @@ class CounterParent extends React.Component{
         return;
     }
 
+    componentWillReceiveProps(nextProps){
+        console.log('componentWillReceiveProps');
+        return;
+    }
+
+    getDerivedStateFromProps(nextProps, prevState){
+        console.log('getDerivedStateFromProps');
+    }
+
     render(){
         console.log('render');
         let backgroundStyle = {
