@@ -38,6 +38,16 @@ class CounterParent extends React.Component{
         this.increase = this.increase.bind(this);
     }
 
+    componentWillMount(){
+        console.log('componentWillMount');
+        return;
+    }
+
+    componentDidMount(){
+        console.log('componentDidMount');
+        return
+    }
+
     increase(e){
         // SyntheticEvent
         console.log(e);
@@ -54,7 +64,47 @@ class CounterParent extends React.Component{
         });
     }
 
+    shouldComponentUpdate(newProps, newState){
+        console.log('shouldComponentUpdate: should component update ? ');
+        console.log(newProps);
+        console.log(newState);
+        if(newState.count < 5){
+            console.log('Component should update');
+            return true;
+        }else {
+            console.log('Component should not update');
+
+            // 从DOM拿掉组件
+            // ReactDOM.unmountComponentAtNode(destination);
+            return false;
+        }
+    }
+
+    componentWillUpdate(){
+        // 如果 shouldComponentUpdate 返回 true ,则调用此函数
+        console.log('componentWillUpdate: component is about update');
+        return;
+    }
+
+    componentDidUpdate(){
+        // 调用 render 之后调用此函数
+       console.log('componentDidUpdate: component is just updated');
+       return;
+    }
+
+    componentWillUnmount(){
+        // 组件消亡时，调用此函数
+        console.log('componentWillUnmount: component is removed from dom');
+        return;
+    }
+
+    componentWillReceiveProps(newProps){
+        console.log('componentWilReceiveProps: counter receive new props');
+        return;
+    }
+
     render(){
+        console.log('render');
         let backgroundStyle = {
             padding: 50,
             backgroundColor: "#ffc53a",
